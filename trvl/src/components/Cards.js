@@ -44,10 +44,19 @@ function Cards({ refProp }) {
   const [fourthImage, setFourthImage] = useState(cardArray[3]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setMainImage(secondImage);
-    }, 2000);
-    return () => clearInterval(interval);
+    for (let i = 0; i < cardArray.length; i++) {
+      // console.log(i);
+      const interval = setInterval(() => {
+        if (cardArray[i] === undefined) {
+          i = 0;
+        }
+        setMainImage(cardArray[i++]);
+        // setSecondImage(cardArray[i++]);
+
+        console.log(cardArray[i++]);
+      }, 2000);
+      return () => clearInterval(interval);
+    }
   }, []);
 
   return (
