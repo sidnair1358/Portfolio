@@ -15,7 +15,7 @@ function Home() {
     <>
       <HeroSection handleClick={handleClick} />
       <Cards refProp={cardRef} />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
