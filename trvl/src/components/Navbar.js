@@ -22,7 +22,7 @@ function Navbar() {
       <nav className="navbar">
         <div className="navbar -container">
           <Link to="/" className="navbar-logo">
-            TRVL <i className="fab fa-pagelines" />
+            Siddharth Nair
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
@@ -35,20 +35,16 @@ function Navbar() {
             </li>
             <li className="nav-item">
               <Link
-                to="/services"
+                to="/projects"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                Services
+                Projects
               </Link>
             </li>
             <li className="nav-item">
-              <Link
-                to="/products"
-                className="nav-links"
-                onClick={closeMobileMenu}
-              >
-                Products
+              <Link to="/tools" className="nav-links" onClick={closeMobileMenu}>
+                Tools
               </Link>
             </li>
             <li className="nav-item">
