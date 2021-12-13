@@ -1,8 +1,55 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./cards.css";
 import CardItem from "./CardItem";
 
 function Cards({ refProp }) {
+  class CardObject {
+    constructor(src, text, label, path) {
+      this.src = src;
+      this.text = text;
+      this.label = label;
+      this.path = path;
+    }
+  }
+
+  const amazon = new CardObject(
+    "images/amazon.png",
+    "Amazon Prime Video",
+    "React",
+    "/projects"
+  );
+  const form = new CardObject(
+    "images/form.png",
+    "Beyond Bootcamp Survey Form",
+    "React",
+    "/projects"
+  );
+  const dashboard = new CardObject(
+    "images/dashboard.png",
+    "Beyond Bootcamp Dashboard",
+    "React",
+    "/projects"
+  );
+  const weatherApp = new CardObject(
+    "images/weatherApp.png",
+    "Javascript Weather App",
+    "Vanilla JavaScript",
+    "/projects"
+  );
+
+  const cardArray = [amazon, weatherApp, form, dashboard];
+  const [mainImage, setMainImage] = useState(cardArray[0]);
+  const [secondImage, setSecondImage] = useState(cardArray[1]);
+  const [thirdImage, setThirdImage] = useState(cardArray[2]);
+  const [fourthImage, setFourthImage] = useState(cardArray[3]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMainImage(secondImage);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="cards" id="card-component" ref={refProp}>
       <h1>Check out these EPIC Destinations!</h1>
@@ -10,36 +57,30 @@ function Cards({ refProp }) {
         <div className="cards__wrapper">
           <ul className="cards__items">
             <CardItem
-              src="images/img-9.jpg"
-              text="Explore the hidden waterfall deep inside the Amazon Jungle"
-              label="Adventure"
-              path="/services"
+              src={mainImage.src}
+              text={mainImage.text}
+              label={mainImage.label}
+              path={mainImage.path}
             />
-            {/* <CardItem
-              src="images/img-2.jpg"
-              text="Travel through the Islands of Bali in a Private Cruise"
-              label="Luxury"
-              path="/services"
-            /> */}
           </ul>
           <ul className="cards__items">
             <CardItem
-              src="images/img-3.jpg"
-              text="Set Sail in the Atlantic Ocean visiting Uncharted Waters"
-              label="Mystery"
-              path="/services"
+              src={secondImage.src}
+              text={secondImage.text}
+              label={secondImage.label}
+              path={secondImage.path}
             />
             <CardItem
-              src="images/img-4.jpg"
-              text="Experience Football on Top of the Himilayan Mountains"
-              label="Adventure"
-              path="/products"
+              src={thirdImage.src}
+              text={thirdImage.text}
+              label={thirdImage.label}
+              path={thirdImage.path}
             />
             <CardItem
-              src="images/img-8.jpg"
-              text="Ride through the Sahara Desert on a guided camel tour"
-              label="Adrenaline"
-              path="/sign-up"
+              src={fourthImage.src}
+              text={fourthImage.text}
+              label={fourthImage.label}
+              path={fourthImage.path}
             />
           </ul>
         </div>
