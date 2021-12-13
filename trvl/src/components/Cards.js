@@ -51,17 +51,14 @@ function Cards({ refProp }) {
           i = 0;
         }
         setMainImage(cardArray[i++]);
-        // setSecondImage(cardArray[i++]);
-
-        console.log(cardArray[i++]);
-      }, 2000);
+      }, 2500);
       return () => clearInterval(interval);
     }
   }, []);
 
   return (
     <div className="cards" id="card-component" ref={refProp}>
-      <h1>Check out these EPIC Destinations!</h1>
+      <h1>Check out these selected projects!</h1>
       <div className="cards__container">
         <div className="cards__wrapper">
           <ul className="cards__items">
