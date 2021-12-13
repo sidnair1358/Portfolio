@@ -2,9 +2,9 @@ import React from "react";
 import "./cards.css";
 import CardItem from "./CardItem";
 
-function Cards() {
+function Cards({ refProp }) {
   return (
-    <div className="cards">
+    <div className="cards" id="card-component" ref={refProp}>
       <h1>Check out these EPIC Destinations!</h1>
       <div className="cards__container">
         <div className="cards__wrapper">

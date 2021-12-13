@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useRef } from "react";
 import "../../App.css";
 import Cards from "../Cards";
 import HeroSection from "../HeroSection";
 import Footer from "../Footer";
 
 function Home() {
+  const cardRef = useRef();
+  function handleClick() {
+    cardRef.current.scrollIntoView({ behavior: "smooth" });
+    console.log("card component accessed", cardRef);
+  }
+
   return (
     <>
-      <HeroSection />
-      <Cards />
+      <HeroSection handleClick={handleClick} />
+      <Cards refProp={cardRef} />
       <Footer />
     </>
   );
