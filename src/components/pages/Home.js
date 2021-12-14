@@ -8,7 +8,6 @@ function Home() {
   const cardRef = useRef();
   function handleClick() {
     cardRef.current.scrollIntoView({ behavior: "smooth" });
-    console.log("card component accessed", cardRef);
   }
 
   return (
